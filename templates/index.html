@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo Par ou Ímpar</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+  <main class="container">
+    <h1>Par ou Ímpar</h1>
+
+    {% if erro %}
+      <p class="erro">{{ erro }}</p>
+    {% endif %}
+
+    <section class="card">
+      <h2>Versão 1: Verificar número</h2>
+
+      <form method="POST">
+        <input type="hidden" name="acao" value="simples">
+
+        <input
+          type="number"
+          name="numero"
+          placeholder="Digite um número"
+          required
+        >
+
+        <button type="submit">Verificar</button>
+      </form>
+
+      {% if resultado_simples %}
+        <p class="resultado">{{ resultado_simples }}</p>
+      {% endif %}
+    </section>
+
+    <section class="card">
+      <h2>Versão 2: Jogador x Computador</h2>
+      <p class="descricao">
+        Aqui você pode testar o jogo pela interface web. Para jogar com a mão
+        usando a câmera, execute o arquivo <strong>visao.py</strong>.
+      </p>
+
+      <form method="POST">
+        <input type="hidden" name="acao" value="jogo">
+
+        <label>Escolha:</label>
+        <select name="escolha" required>
+          <option value="par">Par</option>
+          <option value="impar">Ímpar</option>
+        </select>
+
+        <input
+          type="number"
+          name="jogador"
+          min="0"
+          max="5"
+          placeholder="Número de 0 a 5"
+          required
+        >
+
+        <button type="submit">Jogar</button>
+      </form>
+
+      {% if resultado_jogo %}
+        <div class="resultado">
+          <p>Sua escolha: {{ resultado_jogo.escolha }}</p>
+          <p>Você jogou: {{ resultado_jogo.jogador }}</p>
+          <p>Computador jogou: {{ resultado_jogo.computador }}</p>
+          <p>Soma: {{ resultado_jogo.soma }}</p>
+          <p>Resultado: {{ resultado_jogo.resultado }}</p>
+          <strong>{{ resultado_jogo.vencedor }}</strong>
+        </div>
+      {% endif %}
+    </section>
+  </main>
+</body>
+</html>

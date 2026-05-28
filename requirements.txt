@@ -1,0 +1,7 @@
+Flask
+# MediaPipe 0.10.21: versao que ainda inclui a API "mp.solutions" usada no visao.py.
+# (As versoes 0.10.30+ removeram o modulo solutions, deixando so a API "tasks".)
+mediapipe==0.10.21
+# opencv-contrib-python no lugar do opencv-python: o mediapipe depende dele,
+# e ele fornece o mesmo "import cv2" usado no projeto. Versao compativel com numpy<2.
+opencv-contrib-python==4.11.0.86

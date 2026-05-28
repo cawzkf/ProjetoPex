@@ -1,0 +1,12 @@
+# Ambiente virtual
+.venv/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Prints / screenshots (podem conter foto pessoal)
+print_camera.png
+print_home.png
+print_resultado.png
+print_result.html
